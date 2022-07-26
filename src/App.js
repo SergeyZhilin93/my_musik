@@ -1,12 +1,12 @@
 import React from "react"
 import { Header } from './components/Header'
-import { AddPage } from './pages/AddPage'
+import { CreateFilePage } from './pages/CreateFilePage'
 
 function App() {
   return (
     <>
       <Header/>
-      <AddPage/>
+      <CreateFilePage/>
     </>
   );
 }
