@@ -1,0 +1,12 @@
+.create_file-container {
+	height: 20vh;
+	width: 30%;
+  display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.create_file-container__button {
+	
+}
