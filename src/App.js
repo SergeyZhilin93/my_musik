@@ -4,11 +4,12 @@ import { CreateFilePage } from './pages/CreateFilePage'
 import { ListPage } from './pages/ListForm'
 
 function App() {
+  const message = ['hui']
   return (
     <>
       <Header/>
-      <CreateFilePage/>
-      <ListPage/>
+      <CreateFilePage hui = "Добавить песню:"/>
+      <ListPage unReadMessage = {message}/>
     </>
   );
 }
