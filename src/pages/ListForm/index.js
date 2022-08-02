@@ -1,43 +1,30 @@
 import React from 'react'
+import { TestArray } from '../../services/testArray'
 import './style.css'
 
-export function ListPage(props) {
-	const tracks = [
-		{
-			author: 'Tiesto',
-			songName: 'Business',
-		},
-		{
-			author: 'T-Mass',
-			songName: 'Can you feel it',
-		},
-		{
-			author: 'F.O.O.L',
-			songName: 'Guns',
-		},
-		{
-			author: "The Weeknd",
-			songName: "Blinding Lights"
-		}
-	]
-
-	const test = tracks.map((track) => 
-		<p>{track.author + ' - ' + track.songName}</p>
-		)
-	// const unReadMessage = props.unReadMessage
-
+export function ListPage() {
+  const test = () => {
+    let x = prompt('Введите число кроме нуля', 0);
+    if(x === '' || x === null || !isFinite(x)){
+      alert('Goodbye')
+    } else {
+      x = +x
+      for(let i = 1; i <= x; i++){
+        x += i
+      }
+      if(x === 0){
+        return alert('Я же говорил кроме нуля!')
+      } alert(x)
+    }
+  }
 	return(
 		<>
 			<div className='list-page-container'>
-				{/* <button onClick={test}>TEST</button> */}
+				<button onClick={test}>TEST</button>
 				<h1>List Songs:</h1>
 				<div>
-					{test}
+					<TestArray />
 				</div>
-				{/* <h1>Здравствуйте!</h1>
-				{ unReadMessage.length > 0 && 
-					<p>У вас {unReadMessage.length} не прочитанных сообщений!</p>
-				} */}
 			</div>
 		</>
 	)
