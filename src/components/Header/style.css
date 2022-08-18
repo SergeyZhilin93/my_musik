@@ -5,6 +5,7 @@
   background-color: #130f25;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .header-container-logo {
   margin: 0;

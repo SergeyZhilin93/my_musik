@@ -1,10 +1,7 @@
 import React from 'react'
 import './style.css'
 
-export function CreateFilePage(props) {
-	// const handleSubmit = () => {
-	// 	console.log('Получен фокус на поле ввода')
-	// }
+export function CreateFilePage() {
   return(
 		<>
 			<form type="submit" className='create_file-container'>

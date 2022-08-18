@@ -1,0 +1,15 @@
+.logged-button {
+  margin-right: 3rem;
+  color: white;
+  background-color: black;
+  border-radius: 0.5rem;
+  border: 0.2rem solid;
+  border-color: white;
+}
+.logged-button:hover {
+  cursor: pointer;
+}
+.logged-button:active {
+  background-color: white;
+  color: black;
+}
