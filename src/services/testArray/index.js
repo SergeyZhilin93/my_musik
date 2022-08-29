@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css'
 
 export function TestArray() {
   const tracks = [
@@ -23,7 +24,7 @@ export function TestArray() {
 			songName: "Blinding Lights"
 		}
 	]
-  const test = tracks.map((track) => <p key={track.id}>{track.author + ' - ' + track.songName}</p>)
+  const test = tracks.map((track) => <i className='list-songs' key={track.id}>{track.author + ' - ' + track.songName}</i>)
   
   return(
     <>

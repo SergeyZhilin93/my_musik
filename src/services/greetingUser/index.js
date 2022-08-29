@@ -15,7 +15,7 @@ export function GreetingUser(props) {
   };
   return(
 		<>
-			{/* {greetingControl()} */}
+			{greetingControl()}
 		</>
 	)
 }

@@ -1,27 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './style.css'
 
-export class TImer extends React.Component  {
-  constructor(props) {
-    super(props);
-    this.state = {date: new Date()}
-  }
-  componentDidMount() {
-    this.timerId = setInterval(
-      () => this.tick(), 1000
-    )
-  }
-  componentWillMount() {
-    clearInterval(this.timerId)
-  }
-  tick() {
-    this.setState({date: new Date()});
-  }
-  render() {
-    return(
+export function Timer() {
+
+  const [ date, setDate ] = useState(new Date())
+
+  useEffect(() => {
+    const interval = setInterval(() => setDate(new Date()), 1000);
+  })
+  return(
+    <>
       <div>
-        <h2 className='timer-watch'>{this.state.date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</h2>
+        <h2 className='timer-watch'>{date.toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit'}, [])}</h2>
       </div>
-    )
-  }
+    </>
+  )
 }

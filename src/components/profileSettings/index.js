@@ -1,36 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 
-export class ProfileSettings extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: "profile"
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+export function ProfileSettings() {
+  
+  const [ value, setValue ] = useState('Profile')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    alert(`Вы выбрали страницу: ` + value)
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value})
+  const handleChange = (event) => {
+    return setValue(event.target.value)
   }
-
-  handleSubmit(event) {
-    alert(`Редирект на страницу: `+ this.state.value)
-    event.preventDefault()
-  }
-  render() {
-    return(
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Имя пользователя
-          <select value={this.state.value} onChange={this.handleChange}>
-            <option value="profile">Profile</option>
-            <option value="settings">Settings</option>
-            <option value="notifications">Notifications</option>
-          </select>
-        </label>
+  
+  return(
+    <>
+      <form onSubmit={handleSubmit}>
+        <label>User Name:</label>
+        <select value={value} onChange={handleChange}>
+          <option value="Profile">Profile</option>
+          <option value="Settings">Settings</option>
+          <option value="Notifications">Notifications</option>
+        </select>
         <input type="submit" value="Submit"/>
       </form>
-    )
-  }
+    </>
+  )
 }
+
+
+
+// export class ProfileSettings extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       value: "Profile"
+//     };
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//     this.handleChange = this.handleChange.bind(this);
+//   }
+
+//   handleChange(event) {
+//     this.setState({value: event.target.value})
+//   }
+
+//   handleSubmit(event) {
+//     alert(`Вы выбрали страницу: `+ this.state.value)
+//     event.preventDefault()
+//   }
+//   render() {
+//     return(
+//       <form onSubmit={this.handleSubmit}>
+//         <label>
+//           Имя пользователя
+//           <select value={this.state.value} onChange={this.handleChange}>
+//             <option value="Profile">Profile</option>
+//             <option value="Settings">Settings</option>
+//             <option value="Notifications">Notifications</option>
+//           </select>
+//         </label>
+//         <input type="submit" value="Submit"/>
+//       </form>
+//     )
+//   }
+// }
