@@ -1,26 +1,28 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { TestArray } from '../../services/testArray'
 import './style.css'
 
-export function ListPage(props) {
+export function ListPage({counter}) {
   
-  const [ count, setCount ] = useState(0)
+  const [ count, setCount ] = useState(counter)
 
   return(
 		<>
 			<div className='list-page-container'>
         <div className='test-container'>
-        <p className='test-container-dicription'>Вы кликнули {count} раз</p>
-        <div>
-          <button className='test-container-button' onClick={() => setCount(count + 1)}>
-            Click me!
-          </button>
-          <button className='test-container-button' onClick={() => setCount(count * 0)}>
-            Reset
-          </button>
+          <p className='test-container-dicription'>Вы кликнули {count} раз</p>
+          <div>
+            <button className='test-container-button' onClick={() => setCount(count + 1)}>
+              Up!
+            </button>
+            <button className='test-container-button' onClick={() => setCount(count - 1)}>
+              Down!
+            </button>
+            <button className='test-container-button' onClick={() => setCount(counter)}>
+              Reset
+            </button>
+          </div>
         </div>
-        </div>
-				{/* <button onClick={hui}>TEST</button> */}
 				<h1>List Songs:</h1>
 				<div>
 					<TestArray/>

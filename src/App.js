@@ -9,9 +9,9 @@ function App() {
   return (
     <>
       <Header/>
-      <ProfileSettings/>
+      <ProfileSettings initialCount = {0} />
       <CreateFilePage/>
-      <ListPage isLOgedIn={false}/>
+      <ListPage isLOgedIn={false} counter = {0}/>
     </>
   );
 }

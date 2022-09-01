@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css'
 
-export function TestArray() {
+export function TestArray(props) {
   const tracks = [
 		{
       id: 1,
