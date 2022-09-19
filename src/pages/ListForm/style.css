@@ -1,6 +1,6 @@
 .list-page-container {
   width: 30%;
-	height: 100vh;
+	height: auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

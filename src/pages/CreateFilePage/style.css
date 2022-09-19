@@ -6,7 +6,9 @@
 	flex-direction: column;
 	justify-content: space-around;
 }
-
+.add-container {
+  display: flex;
+}
 .create_file-container__button {
 	
 }

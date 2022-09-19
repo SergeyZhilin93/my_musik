@@ -4,7 +4,7 @@ import './style.css';
 
 export function ProfileSettings() {
   const { register, handleSubmit } = useForm()
-  const [arr, setArr] = useState([{name: "john", surName: 'wilson'}]);
+  const [arr, setArr] = useState([{name: "john", surName: 'wilson'}, {name: "Alex", surName: "Arbuzov"}]);
   
   const result = arr.map((element, index) => {
      return <p key={index}>{element.name + " " + element.surName}</p>;
@@ -17,7 +17,7 @@ export function ProfileSettings() {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {result}
-      <input { ...register("name")}/>
+      <input {...register("name")}/>
       <input {...register("surName")}/>
       <input value="Добавить элемент" type='submit'/>
     </form>

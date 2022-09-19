@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
-import { TestArray } from '../../services/testArray'
 import './style.css'
 
 export function ListPage({counter}) {
-  
   const [ count, setCount ] = useState(counter)
-
   return(
 		<>
 			<div className='list-page-container'>
@@ -23,10 +20,6 @@ export function ListPage({counter}) {
             </button>
           </div>
         </div>
-				<h1>List Songs:</h1>
-				<div>
-					<TestArray/>
-				</div>
 			</div>
 		</>
 	)
