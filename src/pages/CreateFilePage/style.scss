@@ -1,16 +1,23 @@
 .create_file-container {
 	height: 20vh;
 	width: 30%;
-  display: flex;
+  	display: flex;
 	align-items: center;
 	flex-direction: column;
 	justify-content: space-around;
 }
-
-.create_file-container__button {
-	
+.add-container {
+  display: flex;
 }
 
 h2 {
 	margin: 0;
+}
+
+.tracklist {
+	display: flex;
+	flex-direction: column;
+	&__song {
+		padding: 1rem;
+	}
 }
