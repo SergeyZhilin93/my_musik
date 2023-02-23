@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
-import { GreetingUser } from '../greetingUser'
-import './style.css'
+import './style.scss'
 
 export function LoginControl() {
   
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-  const handleLoggerControl = () => {
-    return setIsLoggedIn(!isLoggedIn)
-  }
+  const handleLoggerControl = () => setIsLoggedIn(!isLoggedIn)
   
   return(
     <>

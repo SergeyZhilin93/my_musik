@@ -5,11 +5,11 @@
   border-radius: 0.5rem;
   border: 0.2rem solid;
   border-color: white;
-}
-.logged-button:hover {
-  cursor: pointer;
-}
-.logged-button:active {
-  background-color: white;
-  color: black;
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    background-color: white;
+    color: black;
+  }
 }
