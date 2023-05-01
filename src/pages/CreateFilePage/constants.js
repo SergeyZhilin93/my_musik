@@ -1,5 +1,5 @@
 export const mockTracks = [
-    {
+    {   
         author: 'Tiesto',
         songName: 'Business',
     },

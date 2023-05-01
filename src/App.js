@@ -1,13 +1,18 @@
 import React from "react"
 import { Header } from './components/Header'
 import { CreateFilePage } from './pages/CreateFilePage'
+import { Player } from "./components/Player"
 import './App.css'
 
 function App() {
+
   return (
     <>
-      <Header/>
-      <CreateFilePage/>
+      <div className="container">
+        <Header/>
+        <Player/>
+        <CreateFilePage/>
+      </div>
     </>
   );
 }

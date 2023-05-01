@@ -20,7 +20,7 @@ export function CreateFilePage() {
       </div>
       <h1>List Songs:</h1>
 			<div className='tracklist'>
-        { tracks.map((track) => <i className='tracklist__song' key={track.id}>{track.author + ' - ' + track.songName}</i>) }
+        { tracks.map((track, i) => <i className='tracklist__song' key={i}>{track.author + ' - ' + track.songName}</i>) }
 			</div>
     </form>
   ) 
