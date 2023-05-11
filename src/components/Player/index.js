@@ -24,7 +24,7 @@ export function Player() {
 	const [mute, setMute] = useState(false)
 
 
-	const fmtMSS = (s) => {
+	const calculateTimer = (s) => {
     return (s - (s %= 60)) / 60 + (10 < s ? ':' : ':0') + ~~s
   }
 
@@ -74,35 +74,11 @@ export function Player() {
 			}
   }
 
-	const clickOpacitySync = () => {
-		if (opacitySync.current.style.opacity == 0.5) {
-			opacitySync.current.style.opacity = 1
+	const handleClickOpacity = (ref) => {
+		if (ref.current.style.opacity == 0.5) {
+			ref.current.style.opacity = 1
 		} else {
-			opacitySync.current.style.opacity = 0.5
-		}
-	}
-
-	const clickOpacityShufle = () => {
-		if (opacityShufle.current.style.opacity == 0.5) {
-			opacityShufle.current.style.opacity = 1
-		} else {
-			opacityShufle.current.style.opacity = 0.5
-		}
-	}
-
-	const clickOpacityList = () => {
-		if (opacityList.current.style.opacity == 0.5) {
-			opacityList.current.style.opacity = 1
-		} else {
-			opacityList.current.style.opacity = 0.5
-		}
-	}
-
-	const clickOpacityFillPushPin = () => {
-		if (opacityFillPushPin.current.style.opacity == 0.5) {
-			opacityFillPushPin.current.style.opacity = 1
-		} else {
-			opacityFillPushPin.current.style.opacity = 0.5
+			ref.current.style.opacity = 0.5
 		}
 	}
 
@@ -119,9 +95,9 @@ export function Player() {
 			audio.current.autoplay = false
 		}
 		if (mute) {
-			audio.current.muted = true
+			audio.current.muted = mute
 		} else {
-			audio.current.muted = false
+			audio.current.muted = mute
 		}
 		opacitySync.current.style.opacity = 0.5
 		opacityShufle.current.style.opacity = 0.5
@@ -133,19 +109,19 @@ export function Player() {
 	}, [isPlaying, currentTime])
 
 	useEffect(() => {
-    const timeupdate = (e) => {
+    const timeUpdate = (e) => {
       setCurrentTime(e.target.currentTime);
     };
-    audio.current.addEventListener("timeupdate", timeupdate);
+    audio.current.addEventListener("timeupdate", timeUpdate);
     return () => {
-      audio.current.removeEventListener("timeupdate", timeupdate);
+      audio.current.removeEventListener("timeupdate", timeUpdate);
     };
   });
 
 	
 	return(
 		<>
-			<div className="test">
+			<div className="player-component">
 				<audio
 					onCanPlay={(e) => setDur(e.target.duration)}
 					onEnded={handleEnd}
@@ -199,29 +175,34 @@ export function Player() {
 					</div>
 					<div className="settingsPlayer">
 						<div className="timeSong">
-							<p className="timeSong__view">{fmtMSS(currentTime)}</p>
+							<p className="timeSong__view">{calculateTimer(currentTime)}</p>
 							<p className="timeSong__view">/</p>
-							<p className="timeSong__view">{fmtMSS(dur)}</p>
+							<p className="timeSong__view">{calculateTimer(dur)}</p>
 						</div>
 						<div className="volume">
 							<div className="volume__icon" onClick={handleMute}>
 								{(statevolum == 0 || mute) ? (
-									<IconContext.Provider value={{ size: "1em", color: "#fff" }}>
-										<BiVolumeMute/>
-									</IconContext.Provider>
-								) : (statevolum < 0.3) ? (
+										<IconContext.Provider value={{ size: "1em", color: "#fff" }}>
+											<BiVolumeMute/>
+										</IconContext.Provider>
+									) : null}
+								{(statevolum < 0.3 && statevolum > 0 && !mute) ? (
 									<IconContext.Provider value={{ size: "1em", color: "#fff" }}>
 										<BiVolume/>
 									</IconContext.Provider>
-								) : (statevolum < 0.6) ? (
+								) : (
+									null
+								)}
+								{(statevolum < 0.6 && statevolum >= 0.3 && !mute) ? (
 									<IconContext.Provider value={{ size: "1em", color: "#fff" }}>
 										<BiVolumeLow/>
 									</IconContext.Provider>
-								) : (
+								) : null}
+								{(statevolum >= 0.6 && statevolum <= 1 && !mute) ? (
 									<IconContext.Provider value={{ size: "1em", color: "#fff" }}>
 										<BiVolumeFull/>
 									</IconContext.Provider>
-								)}
+								) : null}
 							</div>
 							<div className="volume__bar">
 								<input
@@ -235,22 +216,22 @@ export function Player() {
 							</div>
 						</div>
 						<div className="settingsIcon">
-							<div className="settingsIcon__sync" ref={opacitySync} onClick={clickOpacitySync}>
+							<div className="settingsIcon__sync" ref={opacitySync} onClick={() => handleClickOpacity(opacitySync)}>
 								<IconContext.Provider value={{ size: "1em", color: "#fff" }}>
 									<BiSync/>
 								</IconContext.Provider>
 							</div>
-							<div className="settingsIcon__shufle" ref={opacityShufle} onClick={clickOpacityShufle}>
+							<div className="settingsIcon__shufle" ref={opacityShufle} onClick={() => handleClickOpacity(opacityShufle)}>
 								<IconContext.Provider value={{ size: "1em", color: "#fff" }}>
 									<BiShuffle/>
 								</IconContext.Provider>
 							</div>
-							<div className="settingsIcon__playList" ref={opacityList} onClick={clickOpacityList}>
+							<div className="settingsIcon__playList" ref={opacityList} onClick={() => handleClickOpacity(opacityList)}>
 								<IconContext.Provider value={{ size: "1em", color: "#fff" }}>
 									<BiListUl/>
 								</IconContext.Provider>
 							</div>
-							<div className="settingsIcon__fillPushpin" ref={opacityFillPushPin} onClick={clickOpacityFillPushPin}>
+							<div className="settingsIcon__fillPushpin" ref={opacityFillPushPin} onClick={() => handleClickOpacity(opacityFillPushPin)}>
 								<IconContext.Provider value={{ size: "1em", color: "#fff" }}>
 									<AiFillPushpin/>
 								</IconContext.Provider>

@@ -1,4 +1,4 @@
-export const mockTracks = [
+export const mockTracks = [   //Массив используется для списка песен, так как он не относится к данной задаче буду работать над ним в другой задаче
     {   
         author: 'Tiesto',
         songName: 'Business',
