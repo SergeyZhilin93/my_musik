@@ -2,7 +2,7 @@
 
 .header-container {
   height: 10vh;
-  background-color: #130f25;
+  background-color: #040C0E;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -10,6 +10,6 @@
 .header-container-logo {
   margin: 0;
   padding-left: 3rem;
-  color: #ffd6f4;
+  color: #BE9063;
   font-family: 'Dancing Script', cursive;
 }
